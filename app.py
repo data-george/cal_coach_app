@@ -14,6 +14,23 @@ app = Flask(__name__)
 
 ### You will add code from Step 2 here
 
+credentials = Credentials(
+                   url = "https://us-south.ml.cloud.ibm.com",
+                   # api_key = "<YOUR_API_KEY>" # Normally you'd put an API key here, but we've got you covered here
+                  )
+client = APIClient(credentials)
+
+model_id = "meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
+project_id = "skills-network"
+params = TextChatParameters()
+
+model = ModelInference(
+    model_id=model_id,
+    credentials=credentials,
+    project_id=project_id,
+    params=params
+)
+
 ### Step 3
 
 ### Step 4
